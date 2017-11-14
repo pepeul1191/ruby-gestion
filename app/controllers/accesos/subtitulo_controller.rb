@@ -12,6 +12,8 @@ class Accesos::SubtituloController < ApplicationController
 		modulo_id = data['extra']['id_modulo']
 		rpta = [] 
 		array_nuevos = []
+		error = false
+		execption = nil
 	  DB_ACCESOS.transaction do
 			begin  
 				if nuevos.length != 0
@@ -35,10 +37,15 @@ class Accesos::SubtituloController < ApplicationController
 					end
 				end
 			rescue Exception => e
-				raise Sequel::Rollback  
-				render :plain => {:tipo_mensaje => 'error', :mensaje => ['Se ha producido un error en guardar la tabla de subtitulos', e.message]}.to_json, status: 500
+				Sequel::Rollback
+				error = true
+				execption = e	
 			end
 	  end
-		render :plain => {:tipo_mensaje => 'success', :mensaje => ['Se ha registrado los cambios en los subtitulos', array_nuevos]}.to_json
+		if error == false
+			render :plain => {:tipo_mensaje => 'success', :mensaje => ['Se ha registrado los cambios en los subtitulos', array_nuevos]}.to_json
+		else
+			render :plain => {:tipo_mensaje => 'error', :mensaje => ['Se ha producido un error en guardar la tabla de subtitulos', execption.message]}.to_json, status: 500
+		end
 	end
 end
