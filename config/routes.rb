@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   get 'accesos' => 'accesos/view#index'
   get 'accesos/item/listar/:subtitulo_id' => 'accesos/item#listar'
+  post 'accesos/item/guardar' => 'accesos/item#guardar'
   get 'accesos/modulo/listar/:sistema_id' => 'accesos/modulo#listar'
   post 'accesos/modulo/guardar' => 'accesos/modulo#guardar'
   get 'accesos/permiso/listar/:sistema_id' => 'accesos/permiso#listar'
