@@ -50,7 +50,9 @@ class Accesos::UsuarioController < ApplicationController
 	  eliminados = data['eliminados']
 	  usuario_id = data['extra']
 	  usuario_id = data['extra']['usuario_id']
-	  rpta = [] 
+	  rpta = []
+		error = false
+		execption = nil
 	  DB_ACCESOS.transaction do
 			begin  
 				if nuevos.length != 0
@@ -65,11 +67,16 @@ class Accesos::UsuarioController < ApplicationController
 					end
 				end
 			rescue Exception => e
-				raise Sequel::Rollback  
-				render :plain => {:tipo_mensaje => 'error', :mensaje => ['Se ha producido un error en asociar/deasociar los sistemas al usuario', e.message]}.to_json, status: 500
+				Sequel::Rollback
+				error = true
+				execption = e	
 			end
 	  end
-		render :plain => {:tipo_mensaje => 'success', :mensaje => ['Se ha registrado la asociación/deasociación de los sistemas al usuario', []]}.to_json
+		if error == false
+			render :plain => {:tipo_mensaje => 'success', :mensaje => ['Se ha registrado la asociación/deasociación de los sistemas al usuario', []]}.to_json
+		else
+			render :plain => {:tipo_mensaje => 'error', :mensaje => ['Se ha producido un error en asociar/deasociar los sistemas al usuario', execption.message]}.to_json, status: 500
+		end
 	end
 
 	def asociar_roles
@@ -80,6 +87,8 @@ class Accesos::UsuarioController < ApplicationController
 	  usuario_id = data['extra']
 	  usuario_id = data['extra']['usuario_id']
 	  rpta = [] 
+		error = false
+		execption = nil
 	  DB_ACCESOS.transaction do
 			begin  
 				if nuevos.length != 0
@@ -94,11 +103,16 @@ class Accesos::UsuarioController < ApplicationController
 					end
 				end
 			rescue Exception => e
-				raise Sequel::Rollback  
-				render :plain => {:tipo_mensaje => 'error', :mensaje => ['Se ha registrado la asociación/deasociación de los roles al usuario', e.message]}.to_json, status: 500
+				Sequel::Rollback
+				error = true
+				execption = e	
 			end
 	  end
-		render :plain => {:tipo_mensaje => 'success', :mensaje => ['Se ha producido un error en asociar/deasociar los roles al usuario', []]}.to_json
+		if error == false
+			render :plain => {:tipo_mensaje => 'success', :mensaje => ['Se ha registrado la asociación/deasociación de los roles al usuario', []]}.to_json
+		else
+			render :plain => {:tipo_mensaje => 'error', :mensaje => ['Se ha producido un error en asociar/deasociar los roles al usuario', execption.message]}.to_json, status: 500
+		end
 	end
 
 	def asociar_permisos
@@ -108,7 +122,9 @@ class Accesos::UsuarioController < ApplicationController
 	  eliminados = data['eliminados']
 	  usuario_id = data['extra']
 	  usuario_id = data['extra']['usuario_id']
-	  rpta = [] 
+	  rpta = []
+		error = false
+		execption = nil
 	  DB_ACCESOS.transaction do
 			begin  
 				if nuevos.length != 0
@@ -123,11 +139,16 @@ class Accesos::UsuarioController < ApplicationController
 					end
 				end
 			rescue Exception => e
-				raise Sequel::Rollback  
-				render :plain => {:tipo_mensaje => 'error', :mensaje => ['Se ha registrado la asociación/deasociación de los permisos al usuario', e.message]}.to_json, status: 500
+				error = true
+				execption = e
+				Sequel::Rollback 
 			end
 	  end
-		render :plain => {:tipo_mensaje => 'success', :mensaje => ['Se ha producido un error en asociar/deasociar los permisos al usuario', []]}.to_json
+		if error == false
+			render :plain => {:tipo_mensaje => 'success', :mensaje => ['Se ha registrado la asociación/deasociación de los permisos al usuario', []]}.to_json
+		else
+			render :plain => {:tipo_mensaje => 'error', :mensaje => ['Se ha producido un error en asociar/deasociar los permisos al usuario', execption.message]}.to_json, status: 500
+		end
 	end
 
 	def nombre_repetido
@@ -174,6 +195,8 @@ class Accesos::UsuarioController < ApplicationController
 
 	def guardar_usuario_correo
 		data = JSON.parse(params[:usuario])
+		error = false
+		execption = nil
 		id = data['id']
 	  usuario = data['usuario']
  	  correo = data['correo']
@@ -184,10 +207,15 @@ class Accesos::UsuarioController < ApplicationController
 				e.correo = correo
 				e.save
 			rescue Exception => e
+				error = true
+				execption = e
 				Sequel::Rollback  
-				render :plain => {:tipo_mensaje => 'error', :mensaje => ['Se ha producido un error en guardar los datos generales del usuario', e.message]}.to_json, status: 500
 			end
 	  end
-		render :plain => {:tipo_mensaje => 'success', :mensaje => ['Se ha registrado los cambios en los datos generales del usuario', []]}.to_json
+		if error == false
+			render :plain => {:tipo_mensaje => 'success', :mensaje => ['Se ha registrado los cambios en los datos generales del usuario', []]}.to_json
+		else
+			render :plain => {:tipo_mensaje => 'error', :mensaje => ['Se ha producido un error en guardar los datos generales del usuario', execption.message]}.to_json, status: 500
+		end
 	end
 end
