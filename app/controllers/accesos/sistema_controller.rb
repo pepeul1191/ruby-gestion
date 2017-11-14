@@ -28,6 +28,8 @@ class Accesos::SistemaController < ApplicationController
 	  usuario_id = data['extra']
 		rpta = [] 
 		array_nuevos = []
+		error = false
+		execption = nil
 	  DB_ACCESOS.transaction do
 			begin  
 				if nuevos.length != 0
@@ -53,10 +55,15 @@ class Accesos::SistemaController < ApplicationController
 					end
 				end
 			rescue Exception => e
-				raise Sequel::Rollback  
-				render :plain => {:tipo_mensaje => 'error', :mensaje => ['Se ha producido un error en guardar la tabla de sistemas', e.message]}.to_json, status: 500
+				Sequel::Rollback
+				error = true
+				execption = e	
 			end
 	  end
-		render :plain => {:tipo_mensaje => 'success', :mensaje => ['Se ha registrado los cambios en los sistemas', array_nuevos]}.to_json
+		if error == false
+			render :plain => {:tipo_mensaje => 'success', :mensaje => ['Se ha registrado los cambios en los sistemas', array_nuevos]}.to_json
+		else
+			render :plain => {:tipo_mensaje => 'error', :mensaje => ['Se ha producido un error en guardar la tabla de sistemas', execption.message]}.to_json, status: 500
+		end
 	end
 end
