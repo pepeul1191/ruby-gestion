@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get 'accesos/permiso/listar/:sistema_id' => 'accesos/permiso#listar'
   get 'accesos/permiso/listar_asociados/:sistema_id/:rol_id' => 'accesos/permiso#listar_asociados'
   get 'accesos/rol/listar/:sistema_id' => 'accesos/rol#listar'
+  post 'accesos/rol/guardar' => 'accesos/rol#guardar'
   get 'accesos/sistema/listar' => 'accesos/sistema#listar'
   post 'accesos/sistema/guardar' => 'accesos/sistema#guardar'
   get 'accesos/subtitulo/listar/:modulo_id' => 'accesos/subtitulo#listar'
