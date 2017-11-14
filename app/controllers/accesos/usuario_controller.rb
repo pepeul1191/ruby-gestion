@@ -42,4 +42,33 @@ class Accesos::UsuarioController < ApplicationController
 			) P
 			ON T.id = P.id').to_a.to_json
 	end
+
+	def guardar_sistemas
+		data = JSON.parse(params[:data])
+	  nuevos = data['nuevos']
+ 	  editados = data['editados']
+	  eliminados = data['eliminados']
+	  usuario_id = data['extra']
+	  usuario_id = data['extra']['usuario_id']
+	  rpta = [] 
+	  DB_ACCESOS.transaction do
+			begin  
+				if nuevos.length != 0
+					nuevos.each do |nuevo|
+						n = Accesos::UsuarioSistema.new(:sistema_id => nuevo['id'], :usuario_id => usuario_id)
+						n.save
+					end
+				end
+				if eliminados.length != 0
+					eliminados.each do |eliminado|
+						Accesos::UsuarioSistema.where(:sistema_id => eliminado, :usuario_id => usuario_id).delete
+					end
+				end
+			rescue Exception => e
+				raise Sequel::Rollback  
+				render :plain => {:tipo_mensaje => 'error', :mensaje => ['Se ha producido un error en asociar/deasociar los sistemas al usuario', e.message]}.to_json, status: 500
+			end
+	  end
+		render :plain => {:tipo_mensaje => 'success', :mensaje => ['Se ha registrado la asociación/deasociación de los sistemas al usuario', []]}.to_json
+	end
 end

@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   post 'accesos/sistema/guardar' => 'accesos/sistema#guardar'
   get 'accesos/subtitulo/listar/:modulo_id' => 'accesos/subtitulo#listar'
   post 'accesos/subtitulo/guardar' => 'accesos/subtitulo#guardar'
+  post 'accesos/usuario/guardar_sistemas' => 'accesos/usuario#guardar_sistemas'
   get 'accesos/usuario/listar' => 'accesos/usuario#listar'
   get 'accesos/usuario/listar_sistemas/:usuario_id' => 'accesos/sistema#usuario'
   get 'accesos/usuario/logs/:usuario_id' => 'accesos/usuario#logs'
