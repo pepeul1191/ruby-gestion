@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= @title %></title>
+  <meta charset="UTF-8">
+  <link href="<%= CONSTANTS[:STATIC_URL] + @css %>" rel="stylesheet" type="text/css"/>
+  <link rel="shortcut icon" href="<%= CONSTANTS[:STATIC_URL] %>favicon.ico">
+  <%= csrf_meta_tags %>
+  <script type="text/javascript">
+    var BASE_URL = '<%= CONSTANTS[:BASE_URL] %>';
+    var STATICS_URL  = '<%= CONSTANTS[:STATIC_URL] %>';
+    var CSRF = '<%= CONSTANTS[:CSRF] %>';
+    var DATA = JSON.parse('<%= raw @data %>');
+  </script>
+</head>
+<body>
+  <%= tag(:input, :type => "hidden", :name => request_forgery_protection_token.to_s, :value => CONSTANTS[:CSRF]) %> 
+  <!-- Inicio Modal -->
+  <button type="button" class="btn btn-primary btn-lg oculto" data-toggle="modal" data-target="#modal-container"  id="btnModal" >Launch demo modal</button>
+  <div class="modal fade" id="modal-container" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"></div>
+  <!-- Fin Modal -->
+  <script id="blank-template" type="text/x-handlebars-template">
+      {{> yield}}
+  </script>
+  <script id="yield" type="text/x-handlebars-template">
+    <%= yield %>
+  </script>
+  <script type="text/javascript" src="<%= CONSTANTS[:STATIC_URL] + @js_bottom%>"></script>
+</body>
+</html>
