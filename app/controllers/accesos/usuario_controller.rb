@@ -129,4 +129,25 @@ class Accesos::UsuarioController < ApplicationController
 	  end
 		render :plain => {:tipo_mensaje => 'success', :mensaje => ['Se ha producido un error en asociar/deasociar los permisos al usuario', []]}.to_json
 	end
+
+	def nombre_repetido
+		data = JSON.parse(params[:data])
+	  usuario_id = data['id']
+ 	  usuario = data['usuario']
+		rpta = 0
+		if usuario_id == 'E'
+			#SELECT COUNT(*) AS cantidad FROM usuarios WHERE usuario = ?
+			rpta = Accesos::Usuario.where(:usuario => usuario).count
+		else
+			#SELECT COUNT(*) AS cantidad FROM usuarios WHERE usuario = ? AND id = ?
+			rpta = Accesos::Usuario.where(:usuario => usuario, :id => usuario_id).count
+			if rpta == 1
+				rpta = 0
+			else
+				#SELECT COUNT(*) AS cantidad FROM usuarios WHERE usuario = ?
+				rpta = Accesos::Usuario.where(:usuario => usuario).count
+			end
+		end
+		render :plain => rpta
+	end
 end
