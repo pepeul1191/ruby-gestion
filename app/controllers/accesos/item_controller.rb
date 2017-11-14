@@ -12,6 +12,8 @@ class Accesos::ItemController < ApplicationController
 		subtitulo_id = data['extra']['id_subtitulo']
 		rpta = [] 
 		array_nuevos = []
+		error = false
+		execption = nil
 	  DB_ACCESOS.transaction do
 			begin  
 				if nuevos.length != 0
@@ -25,7 +27,7 @@ class Accesos::ItemController < ApplicationController
 				if editados.length != 0
 					editados.each do |editado|
 						e = Accesos::Item.where(:id => editado['id']).first
-						e.nombre = editado['nombre']
+						e.nombres = editado['nombre']
 						e.url = editado['url']
 						e.save
 					end
@@ -36,10 +38,15 @@ class Accesos::ItemController < ApplicationController
 					end
 				end
 			rescue Exception => e
-				raise Sequel::Rollback  
-				render :plain => {:tipo_mensaje => 'error', :mensaje => ['Se ha producido un error en guardar la tabla de items', e.message]}.to_json, status: 500
+				Sequel::Rollback
+				error = true
+				execption = e	
 			end
 	  end
-		render :plain => {:tipo_mensaje => 'success', :mensaje => ['Se ha registrado los cambios en los items', array_nuevos]}.to_json
+		if error == false
+			render :plain => {:tipo_mensaje => 'success', :mensaje => ['Se ha registrado los cambios en los items', array_nuevos]}.to_json
+		else
+			render :plain => {:tipo_mensaje => 'error', :mensaje => ['Se ha producido un error en guardar la tabla de items', execption.message]}.to_json, status: 500
+		end		
 	end
 end
