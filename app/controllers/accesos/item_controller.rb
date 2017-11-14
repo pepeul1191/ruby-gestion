@@ -27,7 +27,7 @@ class Accesos::ItemController < ApplicationController
 				if editados.length != 0
 					editados.each do |editado|
 						e = Accesos::Item.where(:id => editado['id']).first
-						e.nombres = editado['nombre']
+						e.nombre = editado['nombre']
 						e.url = editado['url']
 						e.save
 					end
