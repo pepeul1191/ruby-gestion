@@ -171,4 +171,23 @@ class Accesos::UsuarioController < ApplicationController
 		end
 		render :plain => rpta
 	end
+
+	def guardar_usuario_correo
+		data = JSON.parse(params[:usuario])
+		id = data['id']
+	  usuario = data['usuario']
+ 	  correo = data['correo']
+		DB_ACCESOS.transaction do
+			begin  
+				e = Accesos::Usuario.where(:id => id).first
+				e.usuario = usuario
+				e.correo = correo
+				e.save
+			rescue Exception => e
+				Sequel::Rollback  
+				render :plain => {:tipo_mensaje => 'error', :mensaje => ['Se ha producido un error en guardar los datos generales del usuario', e.message]}.to_json, status: 500
+			end
+	  end
+		render :plain => {:tipo_mensaje => 'success', :mensaje => ['Se ha registrado los cambios en los datos generales del usuario', []]}.to_json
+	end
 end
