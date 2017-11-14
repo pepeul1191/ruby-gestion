@@ -1,5 +1,5 @@
 class Accesos::ViewController < ApplicationController
-  def index
+	def index
 		@titulo_pagina = 'Gestión de Accesos'
 		@modulo = 'Accesos'
 		@title = 'Home'

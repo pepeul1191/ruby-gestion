@@ -19,7 +19,7 @@ class Accesos::UsuarioController < ApplicationController
 			(
 				SELECT id, nombre, 0 AS existe FROM roles WHERE sistema_id = ' + params[:sistema_id] + '
 			) T
-			LEFT JOIN
+			LEFT JOIN 
 			(
 				SELECT R.id, R.nombre, 1 AS existe  FROM roles R 
 				INNER JOIN usuarios_roles UR ON R.id = UR.rol_id
@@ -32,13 +32,13 @@ class Accesos::UsuarioController < ApplicationController
 		render :plain => DB_ACCESOS.fetch('
 			SELECT T.id AS id, T.nombre AS nombre, (CASE WHEN (P.existe = 1) THEN 1 ELSE 0 END) AS existe, T.llave AS llave FROM
 			(
-					SELECT id, nombre, llave, 0 AS existe FROM permisos WHERE sistema_id = ' + params[:sistema_id] + '
+				SELECT id, nombre, llave, 0 AS existe FROM permisos WHERE sistema_id = ' + params[:sistema_id] + '
 			) T
 			LEFT JOIN
 			(
-					SELECT P.id, P.nombre,  P.llave, 1 AS existe  FROM permisos P 
-					INNER JOIN usuarios_permisos UP ON P.id = UP.permiso_id
-					WHERE UP.usuario_id = ' + params[:usuario_id] + '
+				SELECT P.id, P.nombre,  P.llave, 1 AS existe  FROM permisos P 
+				INNER JOIN usuarios_permisos UP ON P.id = UP.permiso_id
+				WHERE UP.usuario_id = ' + params[:usuario_id] + '
 			) P
 			ON T.id = P.id').to_a.to_json
 	end
