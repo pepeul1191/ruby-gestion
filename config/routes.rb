@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   post 'accesos/item/guardar' => 'accesos/item#guardar'
   get 'accesos/modulo/listar/:sistema_id' => 'accesos/modulo#listar'
   post 'accesos/modulo/guardar' => 'accesos/modulo#guardar'
+  post 'accesos/permiso/guardar' => 'accesos/permiso#guardar'
   get 'accesos/permiso/listar/:sistema_id' => 'accesos/permiso#listar'
   get 'accesos/permiso/listar_asociados/:sistema_id/:rol_id' => 'accesos/permiso#listar_asociados'
   get 'accesos/rol/listar/:sistema_id' => 'accesos/rol#listar'
