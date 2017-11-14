@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get 'accesos/rol/listar/:sistema_id' => 'accesos/rol#listar'
   get 'accesos/sistema/listar' => 'accesos/sistema#listar'
   get 'accesos/usuario/listar' => 'accesos/usuario#listar'
+  get 'accesos/usuario/listar_sistemas/:usuario_id' => 'accesos/sistema#usuario'
   get 'accesos/usuario/logs/:usuario_id' => 'accesos/usuario#logs'
   get 'accesos/usuario/obtener_usuario_correo/:usuario_id' => 'accesos/usuario#obtener_usuario_correo'
 end
