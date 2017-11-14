@@ -19,4 +19,8 @@ class ApplicationController < ActionController::Base
     response.set_header('Access-Control-Request-Method', '*')
     response.set_header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization')
   end
+
+  def not_found
+    redirect_to CONSTANTS[:BASE_URL] + 'error/access/404'
+  end
 end

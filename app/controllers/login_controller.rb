@@ -16,7 +16,6 @@ class LoginController < ApplicationController
       session[:estado] = 'autenticado'
       session[:usuario] = params[:usuario]
       session[:tiempo] = Time.now.strftime('%Y-%m-%d %H:%M:%S')
-
       redirect_to CONSTANTS[:BASE_URL] + 'home'
     else
       @title = 'Bienvenido'

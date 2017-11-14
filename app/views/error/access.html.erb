@@ -1,0 +1,11 @@
+<div class="error-header"> </div>
+<div class="container ">
+	<section class="error-container text-center">
+		<h1><%=@datos['numero']%></h1>
+		<div class="error-divider">
+			<h2><%=@datos['mensaje']%></h2>
+			<p class="description"><%=@datos['descripcion']%></p>
+		</div>
+		<a href="<%= CONSTANTS[:BASE_URL] %>" class="return-btn"><i class="fa fa-home"></i>Ir al Inicio</a>
+	</section>
+</div>

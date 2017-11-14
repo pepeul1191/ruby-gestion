@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  get 'error/access/:id', to: 'error#access'
+
   get 'login' => 'login#index'
   post 'login/acceder' => 'login#acceder'
   get 'login/ver' => 'login#ver'
@@ -33,4 +35,6 @@ Rails.application.routes.draw do
   post 'accesos/usuario/nombre_repetido' => 'accesos/usuario#nombre_repetido'
   post 'accesos/usuario/correo_repetido' => 'accesos/usuario#correo_repetido'
   get 'accesos/usuario/obtener_usuario_correo/:usuario_id' => 'accesos/usuario#obtener_usuario_correo'
+
+  get '*unmatched_route' => 'application#not_found'
 end
