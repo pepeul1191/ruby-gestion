@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get 'accesos/permiso/listar_asociados/:sistema_id/:rol_id' => 'accesos/permiso#listar_asociados'
   get 'accesos/rol/listar/:sistema_id' => 'accesos/rol#listar'
   get 'accesos/sistema/listar' => 'accesos/sistema#listar'
+  post 'accesos/sistema/guardar' => 'accesos/sistema#guardar'
   get 'accesos/subtitulo/listar/:modulo_id' => 'accesos/subtitulo#listar'
   get 'accesos/usuario/listar' => 'accesos/usuario#listar'
   get 'accesos/usuario/listar_sistemas/:usuario_id' => 'accesos/sistema#usuario'

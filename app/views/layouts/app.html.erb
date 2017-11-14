@@ -5,16 +5,19 @@
   <meta charset="UTF-8">
   <link href="<%= CONSTANTS[:STATIC_URL] + @css %>" rel="stylesheet" type="text/css"/>
   <link rel="shortcut icon" href="<%= CONSTANTS[:STATIC_URL] %>favicon.ico">
+  <%= csrf_meta_tags %>
   <script type="text/javascript">
     var BASE_URL = '<%= CONSTANTS[:BASE_URL] %>';
     var STATICS_URL  = '<%= CONSTANTS[:STATIC_URL] %>';
     var MODULOS_JSON = JSON.parse('<%= raw @menu %>');
     var ITEMS_JSON = JSON.parse('<%= raw @items %>');
     var DATA = JSON.parse('<%= raw @data %>');
+    var metas = document.getElementsByTagName('meta'); 
+    var CSRF = '<%= CONSTANTS[:CSRF] %>';
   </script>
-  <%= csrf_meta_tags %>
 </head>
 <body>
+  <%= tag(:input, :type => "hidden", :name => request_forgery_protection_token.to_s, :value => CONSTANTS[:CSRF]) %> 
   <!-- Inicio Modal -->
   <button type="button" class="btn btn-primary btn-lg oculto" data-toggle="modal" data-target="#modal-container"  id="btnModal" >Launch demo modal</button>
   <div class="modal fade" id="modal-container" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"></div>
