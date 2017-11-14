@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   get 'accesos' => 'accesos/view#index'
+  get 'accesos/item/listar/:subtitulo_id' => 'accesos/item#listar'
   get 'accesos/modulo/listar/:sistema_id' => 'accesos/modulo#listar'
   get 'accesos/permiso/listar/:sistema_id' => 'accesos/permiso#listar'
   get 'accesos/permiso/listar_asociados/:sistema_id/:rol_id' => 'accesos/permiso#listar_asociados'
