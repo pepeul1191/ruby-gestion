@@ -24,5 +24,6 @@ Rails.application.routes.draw do
   get 'accesos/usuario/listar_roles/:sistema_id/:usuario_id' => 'accesos/usuario#listar_roles'
   get 'accesos/usuario/listar_permisos/:sistema_id/:usuario_id' => 'accesos/usuario#listar_permisos'
   post 'accesos/usuario/nombre_repetido' => 'accesos/usuario#nombre_repetido'
+  post 'accesos/usuario/correo_repetido' => 'accesos/usuario#correo_repetido'
   get 'accesos/usuario/obtener_usuario_correo/:usuario_id' => 'accesos/usuario#obtener_usuario_correo'
 end
