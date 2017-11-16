@@ -2,7 +2,7 @@ class Accesos::SistemaController < ApplicationController
 	#protect_from_forgery except: :listar
 
 	def listar
-		render :plain => Accesos::Sistema.to_a.to_json
+		render :plain => get(CONSTANTS[:servicios][:accesos] + 'sistema/listar')
 	end
 
 	def usuario

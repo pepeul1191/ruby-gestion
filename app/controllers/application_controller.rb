@@ -12,6 +12,18 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  private
+  def get(url)
+    response = HTTParty.get(URI.encode(url))
+    response.body
+  end
+
+  private
+  def post(url)
+    response = HTTParty.post(URI.encode(url))
+    response.body
+  end
+
   def set_header
     response.set_header('server', 'ruby, Ubuntu')
     response.set_header('Access-Control-Allow-Origin', '*')
