@@ -150,24 +150,7 @@ class Accesos::UsuarioController < ApplicationController
 	end
 
 	def nombre_repetido
-		data = JSON.parse(params[:data])
-	  usuario_id = data['id']
- 	  usuario = data['usuario']
-		rpta = 0
-		if usuario_id == 'E'
-			#SELECT COUNT(*) AS cantidad FROM usuarios WHERE usuario = ?
-			rpta = Accesos::Usuario.where(:usuario => usuario).count
-		else
-			#SELECT COUNT(*) AS cantidad FROM usuarios WHERE usuario = ? AND id = ?
-			rpta = Accesos::Usuario.where(:usuario => usuario, :id => usuario_id).count
-			if rpta == 1
-				rpta = 0
-			else
-				#SELECT COUNT(*) AS cantidad FROM usuarios WHERE usuario = ?
-				rpta = Accesos::Usuario.where(:usuario => usuario).count
-			end
-		end
-		render :plain => rpta
+		render :plain => post(CONSTANTS[:servicios][:accesos] + 'usuario/nombre_repetido?data=' + params[:data])
 	end
 
 	def correo_repetido
