@@ -1,6 +1,6 @@
 class Accesos::SubtituloController < ApplicationController
   def listar
-		render :plain => Accesos::Subtitulo.select(:id, :nombre).where(:modulo_id => params[:modulo_id]).to_a.to_json
+		render :plain => get(CONSTANTS[:servicios][:accesos] + 'subtitulo/listar/' + params[:modulo_id])
 	end
 
 	def guardar
