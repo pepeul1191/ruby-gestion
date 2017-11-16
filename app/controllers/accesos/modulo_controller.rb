@@ -1,6 +1,6 @@
 class Accesos::ModuloController < ApplicationController
 	def listar
-		render :plain => Accesos::Modulo.select(:id, :nombre, :url).where(:sistema_id => params[:sistema_id]).to_a.to_json
+		render :plain => get(CONSTANTS[:servicios][:accesos] + 'modulo/listar/' + params[:sistema_id])
 	end
 
 	def guardar
