@@ -1,6 +1,6 @@
 class Accesos::PermisoController < ApplicationController
     def listar
-        render :plain => Accesos::Permiso.select(:id, :nombre, :llave).where(:sistema_id => params[:sistema_id]).to_a.to_json
+		render :plain => get(CONSTANTS[:servicios][:accesos] + 'permiso/listar/' + params[:sistema_id])
     end
 
     def listar_asociados
