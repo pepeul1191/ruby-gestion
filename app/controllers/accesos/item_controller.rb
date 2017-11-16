@@ -1,6 +1,6 @@
 class Accesos::ItemController < ApplicationController
 	def listar
-		render :plain => Accesos::Item.select(:id, :nombre, :url).where(:subtitulo_id => params[:subtitulo_id]).to_a.to_json
+		render :plain => get(CONSTANTS[:servicios][:accesos] + 'item/listar/' + params[:subtitulo_id])
 	end
 	
 	def guardar
