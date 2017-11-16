@@ -12,33 +12,11 @@ class Accesos::UsuarioController < ApplicationController
 	end
 
 	def listar_roles
-		render :plain => DB_ACCESOS.fetch('
-			SELECT T.id AS id, T.nombre AS nombre, (CASE WHEN (P.existe = 1) THEN 1 ELSE 0 END) AS existe FROM
-			(
-				SELECT id, nombre, 0 AS existe FROM roles WHERE sistema_id = ' + params[:sistema_id] + '
-			) T
-			LEFT JOIN 
-			(
-				SELECT R.id, R.nombre, 1 AS existe  FROM roles R 
-				INNER JOIN usuarios_roles UR ON R.id = UR.rol_id
-				WHERE UR.usuario_id = ' + params[:usuario_id] + '
-			) P
-			ON T.id = P.id').to_a.to_json
+		render :plain => get(CONSTANTS[:servicios][:accesos] + 'usuario/listar_roles/' + params[:sistema_id] + '/' + params[:usuario_id])
 	end
 
 	def listar_permisos
-		render :plain => DB_ACCESOS.fetch('
-			SELECT T.id AS id, T.nombre AS nombre, (CASE WHEN (P.existe = 1) THEN 1 ELSE 0 END) AS existe, T.llave AS llave FROM
-			(
-				SELECT id, nombre, llave, 0 AS existe FROM permisos WHERE sistema_id = ' + params[:sistema_id] + '
-			) T
-			LEFT JOIN
-			(
-				SELECT P.id, P.nombre,  P.llave, 1 AS existe  FROM permisos P 
-				INNER JOIN usuarios_permisos UP ON P.id = UP.permiso_id
-				WHERE UP.usuario_id = ' + params[:usuario_id] + '
-			) P
-			ON T.id = P.id').to_a.to_json
+		render :plain => get(CONSTANTS[:servicios][:accesos] + 'usuario/listar_permisos/' + params[:sistema_id] + '/' + params[:usuario_id])
 	end
 
 	def guardar_sistemas
