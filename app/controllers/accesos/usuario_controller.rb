@@ -6,7 +6,7 @@ class Accesos::UsuarioController < ApplicationController
 	end
 
 	def logs
-		render :plain => Accesos::Acceso.select(:id, :momento).where(:usuario_id => params[:usuario_id]).to_a.to_json
+		render :plain => get(CONSTANTS[:servicios][:accesos] + 'usuario/listar_accesos/' + params[:usuario_id])
 	end
 
 	def obtener_usuario_correo
