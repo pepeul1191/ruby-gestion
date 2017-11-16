@@ -8,7 +8,7 @@ class Accesos::UsuarioController < ApplicationController
 	end
 
 	def obtener_usuario_correo
-		render :plain => Accesos::Usuario.select(:usuario, :correo).where(:id => params[:usuario_id]).first.to_json
+		render :plain => get(CONSTANTS[:servicios][:accesos] + 'usuario/obtener_usuario_correo/' + params[:usuario_id])
 	end
 
 	def listar_roles
