@@ -3,7 +3,7 @@ var asociacion_array_json_th = [
 	{titulo:"Nombre",index:"nombre",estilos:"width: 100px;"},
 	{titulo:"Referencia Llegada",index:"referencia_llegada",estilos:"width: 300px;"},
 	{titulo:"Area",index:"area",estilos:"width: 50px;"},
-	{titulo:"Responsable", tipo:"autocomplete",estilos:"width:200px;", index:"responsable", edicion:"",  url: BASE_URL  + "agricultores/asociacion/buscar/", llave: "id", valor: "nombre", formato_carga:{llave: "responsable_id", valor: "responsable"}},
+	{titulo:"Responsable",index:"distrito_id",estilos:"width: 280px;"},
 	{titulo:"Botones",index:"NA",estilos:"width: 90px;"}
 ];
 
@@ -12,12 +12,12 @@ var asociacion_array_json_td = [
 	{tipo:"text",estilos:"width:100px;", index:"nombre", edicion:""},
 	{tipo:"text",estilos:"width:300px;", index:"referencia_llegada", edicion:""},
 	{tipo:"text",estilos:"width:50px;", index:"area", edicion:""},
-  {tipo:"text",estilos:"width:200px;", index:"responsable", edicion:""},
+  {tipo:"autocomplete",estilos:"width:200px;", index:"responsable", edicion:"",  url: BASE_URL  + "agricultores/responsable/buscar?responsable=", llave: "id", valor: "responsable", formato_carga:{llave: "responsable_id", valor: "responsable"}},
 	{tipo:"botones", index:"botones", edicion:"true"}
 ];
 
 var asociacion_array_json_btn_td = [
-  {clase:"fa fa-times",url:"",alt:"Eliminar módulo",estilos:"padding-left: 30px;", operacion:"QuitarFila"}
+  {clase:"fa fa-times",url:"",alt:"Eliminar asociación",estilos:"padding-left: 30px;", operacion:"QuitarFila"}
 ]; 
 
 var asociacion_array_json_btn = [
