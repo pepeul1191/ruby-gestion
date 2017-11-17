@@ -14,7 +14,7 @@ var Router = Marionette.AppRouter.extend({
     asociacionIndex: function(){
         var asociacionView = new AsociacionView({});
         asociacionView.render();
-        //asociacionView.mostrarTabla();
+        asociacionView.mostrarTabla();
     },
     campoIndex: function(){
         var campoView = new CampoView({});
