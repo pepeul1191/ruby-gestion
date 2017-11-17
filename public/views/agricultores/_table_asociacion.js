@@ -3,7 +3,7 @@ var asociacion_array_json_th = [
 	{titulo:"Nombre",index:"nombre",estilos:"width: 100px;"},
 	{titulo:"Referencia Llegada",index:"referencia_llegada",estilos:"width: 300px;"},
 	{titulo:"Area",index:"area",estilos:"width: 50px;"},
-	{titulo:"Responsable",index:"distrito_id",estilos:"width: 280px;"},
+	{titulo:"Responsable",index:"responsable_id",estilos:"width: 280px;"},
 	{titulo:"Botones",index:"NA",estilos:"width: 90px;"}
 ];
 
