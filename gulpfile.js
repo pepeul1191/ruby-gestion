@@ -225,6 +225,7 @@ gulp.task('agricultores', function(){
         MEDIA + 'views/agricultores/responsable.js', 
         MEDIA + 'views/agricultores/_table_asociacion.js', 
         MEDIA + 'views/agricultores/asociacion.js', 
+        MEDIA + 'views/agricultores/_table_campo.js', 
         MEDIA + 'views/agricultores/campo.js', 
         MEDIA + 'routes/agricultores.js'
     ])

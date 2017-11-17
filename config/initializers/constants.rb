@@ -6,6 +6,7 @@ CONSTANTS = {
     :key => 'Fdp6CVxpri1ga8kH',
     :servicios => {
         :accesos => 'http://localhost:5000/',
-        :agricultor => 'http://localhost:3012/'
+        :agricultor => 'http://localhost:3012/',
+        :ubicaciones => 'http://localhost:3011/'
     }
 }

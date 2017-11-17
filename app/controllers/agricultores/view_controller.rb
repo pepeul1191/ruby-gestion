@@ -6,7 +6,7 @@ class Agricultores::ViewController < ApplicationController
 		@css = 'dist/agricultores.min.css'
 		@js_top = 'http://localhost:3000/'
 		@menu = '[{"url" : "accesos", "nombre" : "Accesos"},{"url" : "libros", "nombre" : "Libros"},{"url" : "agricultores", "nombre" : "Agricultores"}]'
-		@items = '[{"subtitulo":"","items":[{"item":"Gestión de Responsables","url":"agricultores/#/responsable"},{"item":"Gestión de Asociaciones","url":"agricultores/#/asociacion"},{"item":"Gestión de Campos","url":"agricultores/#/campo"}]}]' 
+		@items = '[{"subtitulo":"","items":[{"item":"Gestión de Responsables","url":"agricultores/#/responsable"},{"item":"Gestión de Asociaciones","url":"agricultores/#/asociacion"}]}]' 
 		@js_bottom = 'dist/agricultores.min.js'
 		@data = {
 			:mensaje => false,

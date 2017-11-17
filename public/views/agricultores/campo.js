@@ -1,14 +1,14 @@
 var tablaCampo = new Grid();
 
 var CampoView = Backbone.View.extend({
-	el: '#workspace',
+	el: '#modal-container',
 	initialize: function(){
 		//this.render();
 		//console.log("initialize");
 	},
 	render: function() {
+		$("#btnModal").click(); 
 		this.$el.html(this.getTemplate());
-		return this;
 	},
 	getTemplate: function() {
 		var data = { };
@@ -24,20 +24,22 @@ var CampoView = Backbone.View.extend({
 		});
 		return template_compiled;
 	},
-	mostrarTabla: function(){
-		/*
+	mostrarTabla: function(asociacion_id){
+		var array_extra_data_usuario = [
+			{tipo: "label", llave: "asociacion_id", id : "txtIdeAsociacion"}
+		];	
+
 		tablaCampo.BorrarTable();
    	var ajax_dao_asociacion = new AjaxPython(); 
-   	ajax_dao_asociacion.Constructor("GET", BASE_URL + "accesos/usuario/listar", "", false);
+   	ajax_dao_asociacion.Constructor("GET", BASE_URL + "agricultores/campo/listar/" + asociacion_id, "", false);
    	tablaCampo.SetTableId("tablaCampo");
    	tablaCampo.SetTableObj("tablaCampo");
-   	tablaCampo.SetTableHeader(usuario_array_json_th);
-   	tablaCampo.SetTableBody(usuario_array_json_td, usuario_array_json_btn_td, ajax_dao_asociacion);
-   	tablaCampo.SetTableFooter(usuario_array_json_btn, false);
-   	tablaCampo.SetLabelMensaje("#txtMensajeRpta");
-   	tablaCampo.SetURLGuardar(BASE_URL + "accesos/usuario/guardar");
+   	tablaCampo.SetTableHeader(campo_array_json_th);
+   	tablaCampo.SetTableBody(campo_array_json_td, campo_array_json_btn_td, ajax_dao_asociacion);
+   	tablaCampo.SetTableFooter(campo_array_json_btn, false);
+   	tablaCampo.SetLabelMensaje("#txtMensajeRptaModal");
+   	tablaCampo.SetURLGuardar(BASE_URL + "agricultores/asociacion/guardar");
 
    	tablaCampo.MostrarTable();
-   	*/
 	}
 });

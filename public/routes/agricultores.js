@@ -3,7 +3,7 @@ var Router = Marionette.AppRouter.extend({
         "" : "index", 
         "responsable" : "responsableIndex",
         "asociacion" : "asociacionIndex",
-        "campo" : "campoIndex",
+        "asociacion/campos/:asociacion_id" : "asociacionCampo", 
         "*actions" : "index"
     },
     responsableIndex: function(){
@@ -16,10 +16,17 @@ var Router = Marionette.AppRouter.extend({
         asociacionView.render();
         asociacionView.mostrarTabla();
     },
-    campoIndex: function(){
+    asociacionCampo: function(asociacion_id){
         var campoView = new CampoView({});
         campoView.render();
-        //campoView.mostrarTabla();
+        $("#txtIdeAsociacion").html(asociacion_id);
+        campoView.mostrarTabla(asociacion_id);
+        /*
+        var permisoView = new PermisoView({});
+        permisoView.render();
+        $("#txtIdeSistema").html(sistema_id);
+        permisoView.mostrarTabla(sistema_id);
+        */
     },
 });
     
