@@ -5,6 +5,7 @@ CONSTANTS = {
     :ambiente => 'desarrollo',
     :key => 'Fdp6CVxpri1ga8kH',
     :servicios => {
-        :accesos => 'http://localhost:5000/'
+        :accesos => 'http://localhost:5000/',
+        :agricultor => 'http://localhost:3012/'
     }
 }

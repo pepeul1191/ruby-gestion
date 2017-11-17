@@ -214,3 +214,30 @@ gulp.task('accesos', function(){
     .pipe(concatCss('accesos.min.css'))
     .pipe(gulp.dest(DESTINO));
   });
+
+gulp.task('agricultores', function(){
+    gulp.start('fonts', 'layout-css', 'layout-js', 'swp-plugins');
+    gulp.src([
+        DESTINO + 'libs.min.js',  
+        DESTINO + 'swp.js',
+        MEDIA + 'layouts/app.js',  
+        MEDIA + 'views/agricultores/_table_responsable.js', 
+        MEDIA + 'views/agricultores/responsable.js', 
+        MEDIA + 'views/agricultores/asociacion.js', 
+        MEDIA + 'views/agricultores/campo.js', 
+        MEDIA + 'routes/agricultores.js'
+    ])
+    //.pipe(uglify())
+    .pipe(plumber())
+    .pipe(concatJs('agricultores.min.js'))
+    .pipe(gulp.dest(DESTINO))//.pipe(gulp.dest(DESTINO + 'home'))
+    .pipe(livereload());
+
+    gulp.src([
+        DESTINO + 'styles.min.css', 
+        DESTINO + 'swp.css'
+    ])
+    .pipe(plumber())
+    .pipe(concatCss('agricultores.min.css'))
+    .pipe(gulp.dest(DESTINO));
+});
