@@ -17,7 +17,7 @@ var asociacion_array_json_td = [
 ];
 
 var asociacion_array_json_btn_td = [
-	{clase:"fa fa-square",url:"",alt:"Ver campos",estilos:"padding-left: 25px;", operacion:"VerCampos"},
+	{clase:"fa fa-square", href:"#/asociacion/campos/",alt:"Ver Campos",estilos:"padding-left: 25px;", operacion:"IrURL"},
   {clase:"fa fa-times",url:"",alt:"Eliminar asociación",estilos:"padding-left: 10px;", operacion:"QuitarFila"},
 ]; 
 

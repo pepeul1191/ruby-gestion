@@ -1,8 +1,3 @@
-/*
-Archivos que usa :
-	+
-*/
-
 var Router = Marionette.AppRouter.extend({
     routes: {
         'email/:email': 'showEmail',
