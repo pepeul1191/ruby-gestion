@@ -9,7 +9,7 @@ var Router = Marionette.AppRouter.extend({
     responsableIndex: function(){
         var responsableView = new ResponsableView({});
         responsableView.render();
-        //responsableView.mostrarTabla();
+        responsableView.mostrarTabla();
     },
     asociacionIndex: function(){
         var asociacionView = new AsociacionView({});

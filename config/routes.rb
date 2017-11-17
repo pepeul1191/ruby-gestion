@@ -37,6 +37,7 @@ Rails.application.routes.draw do
   get 'accesos/usuario/obtener_usuario_correo/:usuario_id' => 'accesos/usuario#obtener_usuario_correo'
 
   get 'agricultores' => 'agricultores/view#index'
+  get 'agricultores/responsable/listar' => 'agricultores/responsable#listar'
 
   get '*unmatched_route' => 'application#not_found'
 end
