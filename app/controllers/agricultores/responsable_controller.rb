@@ -3,4 +3,8 @@ class Agricultores::ResponsableController < ApplicationController
 	def listar
 		render :plain => get(CONSTANTS[:servicios][:agricultor] + 'responsable/listar')
 	end
+
+	def guardar
+		render :plain => post(CONSTANTS[:servicios][:agricultor] + 'responsable/guardar?data=' + params[:data])
+	end
 end

@@ -38,6 +38,7 @@ Rails.application.routes.draw do
 
   get 'agricultores' => 'agricultores/view#index'
   get 'agricultores/responsable/listar' => 'agricultores/responsable#listar'
+  post 'agricultores/responsable/guardar' => 'agricultores/responsable#guardar'
 
   get '*unmatched_route' => 'application#not_found'
 end
