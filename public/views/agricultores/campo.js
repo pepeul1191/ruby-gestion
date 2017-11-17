@@ -25,7 +25,7 @@ var CampoView = Backbone.View.extend({
 		return template_compiled;
 	},
 	mostrarTabla: function(asociacion_id){
-		var array_extra_data_usuario = [
+		var array_extra_data_campo = [
 			{tipo: "label", llave: "asociacion_id", id : "txtIdeAsociacion"}
 		];	
 
@@ -38,7 +38,8 @@ var CampoView = Backbone.View.extend({
    	tablaCampo.SetTableBody(campo_array_json_td, campo_array_json_btn_td, ajax_dao_asociacion);
    	tablaCampo.SetTableFooter(campo_array_json_btn, false);
    	tablaCampo.SetLabelMensaje("#txtMensajeRptaModal");
-   	tablaCampo.SetURLGuardar(BASE_URL + "agricultores/asociacion/guardar");
+   	tablaCampo.SetExtraData(array_extra_data_campo);
+   	tablaCampo.SetURLGuardar(BASE_URL + "agricultores/campo/guardar");
 
    	tablaCampo.MostrarTable();
 	}

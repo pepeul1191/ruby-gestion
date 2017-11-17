@@ -10,4 +10,8 @@ class Agricultores::CampoController < ApplicationController
 		end
 		render :plain => rpta.to_json
 	end
+
+	def guardar
+		render :plain => 'to_json'
+	end
 end
