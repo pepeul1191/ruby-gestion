@@ -10,12 +10,12 @@ var campo_array_json_td = [
 	{tipo:"label_id",estilos:"color: blue; display:none", index:"id", edicion:""},
 	{tipo:"text",estilos:"width:100px;", index:"nombre", edicion:""},
 	{tipo:"text",estilos:"width:50px;", index:"area", edicion:""},
-  {tipo:"autocomplete",estilos:"width:200px;", index:"distrito", edicion:"",  url: BASE_URL  + "maestros/distrito/buscar?distrito=", llave: "id", valor: "distrito", formato_carga:{llave: "distrito_id", valor: "distrito"}},
+  {tipo:"autocomplete",estilos:"width:280px;", index:"distrito", edicion:"",  url: BASE_URL  + "maestros/distrito/buscar?distrito=", llave: "id", valor: "nombre", formato_carga:{llave: "distrito_id", valor: "distrito"}},
 	{tipo:"botones", index:"botones", edicion:"true"}
 ];
 
 var campo_array_json_btn_td = [
-  {clase:"fa fa-times",url:"",alt:"Eliminar asociación",estilos:"padding-left: 10px;", operacion:"QuitarFila"},
+  {clase:"fa fa-times",url:"",alt:"Eliminar asociación",estilos:"padding-left: 30px;", operacion:"QuitarFila"},
 ]; 
 
 var campo_array_json_btn = [

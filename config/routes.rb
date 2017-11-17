@@ -36,6 +36,8 @@ Rails.application.routes.draw do
   post 'accesos/usuario/correo_repetido' => 'accesos/usuario#correo_repetido'
   get 'accesos/usuario/obtener_usuario_correo/:usuario_id' => 'accesos/usuario#obtener_usuario_correo'
 
+  get 'maestros/distrito/buscar' => 'maestros/distrito#buscar'
+
   get 'agricultores' => 'agricultores/view#index'
   get 'agricultores/responsable/listar' => 'agricultores/responsable#listar'
   post 'agricultores/responsable/guardar' => 'agricultores/responsable#guardar'
