@@ -12,6 +12,6 @@ class Agricultores::CampoController < ApplicationController
 	end
 
 	def guardar
-		render :plain => 'to_json'
+		render :plain => post(CONSTANTS[:servicios][:agricultor] + 'campo/guardar?data=' + params[:data])
 	end
 end
