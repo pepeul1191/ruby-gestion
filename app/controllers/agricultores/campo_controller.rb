@@ -14,4 +14,8 @@ class Agricultores::CampoController < ApplicationController
 	def guardar
 		render :plain => post(CONSTANTS[:servicios][:agricultor] + 'campo/guardar?data=' + params[:data])
 	end
+
+	def subir_foto
+		render :plain => 'render subir_foto'
+	end
 end

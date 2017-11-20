@@ -17,7 +17,8 @@ var asociacion_array_json_td = [
 ];
 
 var asociacion_array_json_btn_td = [
-	{clase:"fa fa-square", href:"#/asociacion/campos/",alt:"Ver Campos",estilos:"padding-left: 25px;", operacion:"IrURL"},
+	{clase:"fa fa-square", href:"#/asociacion/campos/",alt:"Ver Campos",estilos:"padding-left: 15px;", operacion:"IrURL"},
+	{clase:"fa fa-tachometer", href:"#/asociacion/estaciones/",alt:"Ver Estaciones",estilos:"padding-left: 10px;", operacion:"IrURL"},
   {clase:"fa fa-times",url:"",alt:"Eliminar asociación",estilos:"padding-left: 10px;", operacion:"QuitarFila"},
 ]; 
 

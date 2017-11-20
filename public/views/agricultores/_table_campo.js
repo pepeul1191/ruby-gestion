@@ -3,7 +3,7 @@ var campo_array_json_th = [
 	{titulo:"Nombre",index:"nombre",estilos:"width: 100px;"},
 	{titulo:"Area",index:"area",estilos:"width: 50px;"},
 	{titulo:"Distrito",index:"distrito_id",estilos:"width: 280px;"},
-	{titulo:"Botones",index:"NA",estilos:"width: 90px;"}
+	{titulo:"Botones",index:"NA",estilos:"width: 100px;"}
 ];
 
 var campo_array_json_td = [
@@ -11,11 +11,13 @@ var campo_array_json_td = [
 	{tipo:"text",estilos:"width:100px;", index:"nombre", edicion:""},
 	{tipo:"text",estilos:"width:50px;", index:"area", edicion:""},
   {tipo:"autocomplete",estilos:"width:280px;", index:"distrito", edicion:"",  url: BASE_URL  + "maestros/distrito/buscar?distrito=", llave: "id", valor: "nombre", formato_carga:{llave: "distrito_id", valor: "distrito"}},
-	{tipo:"botones", index:"botones", edicion:"true"}
+	{tipo:"botones", index:"botones", edicion:"true", estilos:"width: 100px;"}
 ];
 
 var campo_array_json_btn_td = [
-  {clase:"fa fa-times",url:"",alt:"Eliminar asociación",estilos:"padding-left: 30px;", operacion:"QuitarFila"},
+	{clase:"fa fa-picture-o",url:"",alt:"Seleccionar archivo",estilos:"padding-left: 5px;", operacion:"SeleccionarArchivoFila"},
+	{clase:"fa fa-cloud-upload",url:"",alt:"Subir archivo",estilos:"padding-left: 5px;", operacion:"SubirArchivoFila", url: BASE_URL + "agricultores/campo/subir_foto", validacion: {'extensiones':["image/jpeg", "image/jpg", "image/png"], 'tamanio': 30700}},
+  {clase:"fa fa-times",url:"",alt:"Eliminar asociación",estilos:"padding-left: 5px;", operacion:"QuitarFila"},
 ]; 
 
 var campo_array_json_btn = [
