@@ -16,6 +16,9 @@ class Agricultores::CampoController < ApplicationController
 	end
 
 	def subir_foto
+		Net::SFTP.start(CONSTANTS[:servicios][:ftp][:dominio], CONSTANTS[:servicios][:ftp][:usuario], :password => CONSTANTS[:servicios][:ftp][:contrasenia] ) do |sftp|
+		  sftp.upload!(params[:myFile].path, "/home/pepe/Imágenes/nuevo.png")
+		end
 		render :plain => 'render subir_foto'
 	end
 end

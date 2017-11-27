@@ -7,6 +7,12 @@ CONSTANTS = {
     :servicios => {
         :accesos => 'http://localhost:5000/',
         :agricultor => 'http://localhost:3012/',
-        :ubicaciones => 'http://localhost:3011/'
+        :ubicaciones => 'http://localhost:3011/',
+        :ftp => {
+            :dominio => '192.168.1.50',
+            :puerto => 22,
+            :usuario => 'pepe',
+            :contrasenia => 'kiki123'
+        }
     }
 }
