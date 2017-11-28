@@ -31,6 +31,9 @@ class Agricultores::CampoController < ApplicationController
         #:anchura => ,
         #:mime => ,
       }
+      puts "1 ++++++++++++++++++++++++++++++++++++"
+      puts CONSTANTS[:servicios][:archivos] + 'imagen/crear?data=' + imagen.to_json
+      puts "2 ++++++++++++++++++++++++++++++++++++"
 			post(CONSTANTS[:servicios][:archivos] + 'imagen/crear?data=' + imagen.to_json)
 		end
 		render :plain => 'render subir_foto'
