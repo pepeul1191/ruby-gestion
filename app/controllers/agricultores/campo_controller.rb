@@ -17,7 +17,21 @@ class Agricultores::CampoController < ApplicationController
 
 	def subir_foto
 		Net::SFTP.start(CONSTANTS[:servicios][:ftp][:dominio], CONSTANTS[:servicios][:ftp][:usuario], :password => CONSTANTS[:servicios][:ftp][:contrasenia] ) do |sftp|
-		  sftp.upload!(params[:myFile].path, "/home/pepe/Imágenes/nuevo.png")
+			id_generado = get(CONSTANTS[:servicios][:archivos] + 'imagen/obtener_id')
+			file_name_array = params[:myFile].path.split('.')
+			extension = file_name_array[file_name_array.length - 1].strip
+			sftp.upload(params[:myFile].path, CONSTANTS[:servicios][:ftp][:ruta] + id_generado + '.' + extension)
+			imagen = {
+				:id => id_generado,
+        #:nombre => 'Corbett', 
+        :nombre_generado => id_generado + '.' + extension, 
+        :extension => extension,
+        :ruta => CONSTANTS[:servicios][:ftp][:ruta] + id_generado + '.' + extension,
+        #:altura => ,
+        #:anchura => ,
+        #:mime => ,
+      }
+			post(CONSTANTS[:servicios][:archivos] + 'imagen/crear?data=' + imagen.to_json)
 		end
 		render :plain => 'render subir_foto'
 	end
