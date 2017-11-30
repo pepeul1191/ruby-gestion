@@ -47,6 +47,7 @@ Rails.application.routes.draw do
   get 'agricultores/campo/listar/:asociacion_id' => 'agricultores/campo#listar'
   post 'agricultores/campo/guardar' => 'agricultores/campo#guardar'
   post 'agricultores/campo/subir_foto' => 'agricultores/campo#subir_foto'
+  get 'agricultores/campo/obtener_ruta_foto/:imagen_id' => 'agricultores/campo#obtener_ruta_foto'
 
   get '*unmatched_route' => 'application#not_found'
 end

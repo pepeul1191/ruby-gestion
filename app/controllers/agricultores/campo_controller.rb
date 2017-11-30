@@ -16,6 +16,7 @@ class Agricultores::CampoController < ApplicationController
 	end
 
 	def subir_foto
+		rpta = nil
 		Net::SFTP.start(CONSTANTS[:servicios][:ftp][:dominio], CONSTANTS[:servicios][:ftp][:usuario], :password => CONSTANTS[:servicios][:ftp][:contrasenia] ) do |sftp|
 			id_generado = get(CONSTANTS[:servicios][:archivos] + 'imagen/obtener_id')
 			file_name_array = params[:myFile].path.split('.')
@@ -31,11 +32,12 @@ class Agricultores::CampoController < ApplicationController
         #:anchura => ,
         #:mime => ,
       }
-      puts "1 ++++++++++++++++++++++++++++++++++++"
-      puts CONSTANTS[:servicios][:archivos] + 'imagen/crear?data=' + imagen.to_json
-      puts "2 ++++++++++++++++++++++++++++++++++++"
-			post(CONSTANTS[:servicios][:archivos] + 'imagen/crear?data=' + imagen.to_json)
+      rpta = post(CONSTANTS[:servicios][:archivos] + 'imagen/crear?data=' + imagen.to_json)
 		end
-		render :plain => 'render subir_foto'
+		render :plain => rpta
+	end
+
+	def obtener_ruta_foto
+		render :plain => get(CONSTANTS[:servicios][:archivos] + 'imagen/obtener_ruta_archivo/' + params[:imagen_id].to_s)
 	end
 end
