@@ -4,6 +4,7 @@ var Router = Marionette.AppRouter.extend({
         "responsable" : "responsableIndex",
         "asociacion" : "asociacionIndex",
         "asociacion/campos/:asociacion_id" : "asociacionCampo", 
+        "asociacion/estaciones/:asociacion_id" : "asociacionEstacion", 
         "*actions" : "index"
     },
     responsableIndex: function(){
@@ -21,12 +22,12 @@ var Router = Marionette.AppRouter.extend({
         campoView.render();
         $("#txtIdeAsociacion").html(asociacion_id);
         campoView.mostrarTabla(asociacion_id);
-        /*
-        var permisoView = new PermisoView({});
-        permisoView.render();
-        $("#txtIdeSistema").html(sistema_id);
-        permisoView.mostrarTabla(sistema_id);
-        */
+    },
+    asociacionEstacion: function(asociacion_id){
+        var estacionView = new EstacionView({});
+        estacionView.render(asociacion_id);
+        $("#txtIdeAsociacion").html(asociacion_id);
+        campoView.mostrarTabla(asociacion_id);
     },
 });
     

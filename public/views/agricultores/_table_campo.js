@@ -4,7 +4,7 @@ var campo_array_json_th = [
 	{titulo:"Area",index:"area",estilos:"width: 50px;"},
 	{titulo:"Distrito",index:"distrito_id",estilos:"width: 280px;"},
 	{titulo:"ImagenId",index:"imagen_id",estilos:"display:none"},
-	{titulo:"Botones",index:"NA",estilos:"width: 100px;"}
+	{titulo:"Botones",index:"NA",estilos:"width: 130px;"}
 ];
 
 var campo_array_json_td = [
@@ -13,7 +13,7 @@ var campo_array_json_td = [
 	{tipo:"text",estilos:"width:50px;", index:"area", edicion:""},
   {tipo:"autocomplete",estilos:"width:280px;", index:"distrito", edicion:"",  url: BASE_URL  + "maestros/distrito/buscar?distrito=", llave: "id", valor: "nombre", formato_carga:{llave: "distrito_id", valor: "distrito"}},
   {tipo:"label_id",estilos:"color: blue; display:none", index:"imagen_id", edicion:""},
-	{tipo:"botones", index:"botones", edicion:"true", estilos:"width: 100px;"}
+	{tipo:"botones", index:"botones", edicion:"true", estilos:"width: 130px;"}
 ];
 
 var campo_array_json_btn_td = [
