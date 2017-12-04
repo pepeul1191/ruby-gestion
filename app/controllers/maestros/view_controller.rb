@@ -25,6 +25,19 @@ class Maestros::ViewController < ApplicationController
 	        	}
 	        ], 
 	      },
+	      {
+	        :subtitulo => 'Estaciones',
+	        :items => [
+	        	{
+	        		:item => 'Unidades de Medida',
+	        		:url => 'maestros/#/unidad_medida'
+	        	},
+	        	{
+	        		:item => 'Tipos de Estaciones',
+	        		:url => 'maestros/#/tipo_estacion'
+	        	}
+	        ], 
+	      },
 			].to_json 
 		@js_bottom = 'dist/maestros.min.js'
 		@data = {
