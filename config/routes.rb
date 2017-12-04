@@ -8,6 +8,15 @@ Rails.application.routes.draw do
   get 'login/cerrar' => 'login#cerrar'
   get 'home' => 'accesos/view#index'
 
+  get 'maestros' => 'maestros/view#index'
+  get 'maestros/departamento/listar' => 'maestros/departamento#listar'
+  post 'maestros/departamento/guardar' => 'maestros/departamento#guardar'
+  get 'maestros/distrito/listar/:provincia_id' => 'maestros/distrito#listar'
+  get 'maestros/distrito/buscar' => 'maestros/distrito#buscar'
+  post 'maestros/distrito/guardar' => 'maestros/distrito#guardar'
+  get 'maestros/provincia/listar/:departamento_id' => 'maestros/provincia#listar'
+  post 'maestros/provincia/guardar' => 'maestros/provincia#guardar'
+
   get 'accesos' => 'accesos/view#index'
   get 'accesos/item/listar/:subtitulo_id' => 'accesos/item#listar'
   post 'accesos/item/guardar' => 'accesos/item#guardar'
@@ -35,8 +44,6 @@ Rails.application.routes.draw do
   post 'accesos/usuario/nombre_repetido' => 'accesos/usuario#nombre_repetido'
   post 'accesos/usuario/correo_repetido' => 'accesos/usuario#correo_repetido'
   get 'accesos/usuario/obtener_usuario_correo/:usuario_id' => 'accesos/usuario#obtener_usuario_correo'
-
-  get 'maestros/distrito/buscar' => 'maestros/distrito#buscar'
 
   get 'agricultores' => 'agricultores/view#index'
   get 'agricultores/responsable/listar' => 'agricultores/responsable#listar'

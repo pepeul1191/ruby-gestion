@@ -5,7 +5,7 @@ class Accesos::ViewController < ApplicationController
 		@title = 'Accesos'
 		@css = 'dist/accesos.min.css'
 		@js_top = 'http://localhost:3000/'
-		@menu = '[{"url" : "accesos/", "nombre" : "Accesos"},{"url" : "libros/", "nombre" : "Libros"},{"url" : "agricultores/", "nombre" : "Agricultores"}]'
+		@menu = '[{"url" : "accesos/", "nombre" : "Accesos"},{"url" : "maestros/", "nombre" : "Maestros"},{"url" : "agricultores/", "nombre" : "Agricultores"}]'
 		@items = '[{"subtitulo":"","items":[{"item":"Gestión de Sistemas","url":"accesos/#/sistema"},{"item":"Gestión de Usuarios","url":"accesos/#/usuario"}]}]' 
 		@js_bottom = 'dist/accesos.min.js'
 		@data = {
