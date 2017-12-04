@@ -57,6 +57,7 @@ Rails.application.routes.draw do
   get 'agricultores/campo/obtener_ruta_foto/:imagen_id' => 'agricultores/campo#obtener_ruta_foto'
 
   get 'estaciones/unidad_medida/listar' => 'estaciones/unidad_medida#listar'
+  post 'estaciones/unidad_medida/guardar' => 'estaciones/unidad_medida#guardar'
 
   get '*unmatched_route' => 'application#not_found'
 end

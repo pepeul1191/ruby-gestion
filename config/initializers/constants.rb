@@ -16,6 +16,7 @@ CONSTANTS = {
             :contrasenia => 'kiki123',
             :ruta => '/home/pepe/Documentos/python/archivos/static/',
             :public => 'http://192.168.1.49:3031/'
-        }
+        },
+        :estaciones => 'http://localhost:3025/',
     }
 }
