@@ -58,6 +58,8 @@ Rails.application.routes.draw do
 
   get 'estaciones/unidad_medida/listar' => 'estaciones/unidad_medida#listar'
   post 'estaciones/unidad_medida/guardar' => 'estaciones/unidad_medida#guardar'
+  get 'estaciones/tipo_estacion/listar' => 'estaciones/tipo_estacion#listar'
+  post 'estaciones/tipo_estacion/guardar' => 'estaciones/tipo_estacion#guardar'
 
   get '*unmatched_route' => 'application#not_found'
 end

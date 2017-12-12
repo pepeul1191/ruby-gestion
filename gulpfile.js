@@ -261,6 +261,8 @@ gulp.task('maestros', function(){
         MEDIA + 'views/maestros/extensiones.js', 
         MEDIA + 'views/estaciones/_table_unidad_medida.js', 
         MEDIA + 'views/estaciones/unidad_medida.js', 
+        MEDIA + 'views/estaciones/_table_tipo_estacion.js', 
+        MEDIA + 'views/estaciones/tipo_estacion.js', 
         MEDIA + 'routes/maestros.js'
     ])
     //.pipe(uglify())

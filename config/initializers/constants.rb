@@ -8,14 +8,14 @@ CONSTANTS = {
         :accesos => 'http://localhost:5000/',
         :agricultor => 'http://localhost:3012/',
         :ubicaciones => 'http://localhost:3011/',
-        :archivos => 'http://192.168.1.49:3031/',
+        :archivos => 'http://192.168.1.43:3031/',
         :ftp => {
-            :dominio => '192.168.1.49',
+            :dominio => '192.168.1.43',
             :puerto => 22,
             :usuario => 'pepe',
             :contrasenia => 'kiki123',
             :ruta => '/home/pepe/Documentos/python/archivos/static/',
-            :public => 'http://192.168.1.49:3031/'
+            :public => 'http://192.168.1.43:3031/'
         },
         :estaciones => 'http://localhost:3025/',
     }

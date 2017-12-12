@@ -3,6 +3,7 @@ var Router = Marionette.AppRouter.extend({
         "" : "index", 
         "ubicaciones" : "ubicacionIndex",
         "unidad_medida" : "unidadMedidaIndex",
+        "tipo_estacion" : "tipoEstacionIndex",
         "*actions" : "index"
     },
     ubicacionIndex: function(){
@@ -14,6 +15,11 @@ var Router = Marionette.AppRouter.extend({
         var unidadMedidaView = new UnidadMedidaView({});
         unidadMedidaView.render();
         unidadMedidaView.mostrarTabla();
+    },
+    tipoEstacionIndex: function(){
+        var tipoEstacionView = new TipoEstacionView({});
+        tipoEstacionView.render();
+        tipoEstacionView.mostrarTabla();
     },
 });
     
