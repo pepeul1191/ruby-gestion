@@ -5,7 +5,7 @@ class Maestros::ViewController < ApplicationController
 		@title = 'Maestros'
 		@css = 'dist/agricultores.min.css'
 		@js_top = 'http://localhost:3000/'
-		@menu = '[{"url" : "accesos/", "nombre" : "Accesos"},{"url" : "maestros/", "nombre" : "Maestros"},{"url" : "agricultores/", "nombre" : "Agricultores"}]'
+		@menu = '[{"url" : "accesos/", "nombre" : "Accesos"},{"url" : "maestros/", "nombre" : "Maestros"},{"url" : "agricultores/", "nombre" : "Agricultores"},{"url" : "estaciones/", "nombre" : "Estaciones"}]'
 		@items = [
 				{
 	        :subtitulo => 'Ubicaciones',
