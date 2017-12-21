@@ -55,11 +55,14 @@ Rails.application.routes.draw do
   post 'agricultores/campo/guardar' => 'agricultores/campo#guardar'
   post 'agricultores/campo/subir_foto' => 'agricultores/campo#subir_foto'
   get 'agricultores/campo/obtener_ruta_foto/:imagen_id' => 'agricultores/campo#obtener_ruta_foto'
+  get 'agricultores/campo/estacion/:campo_id' => 'agricultores/campo#estacion'
+
 
   get 'estaciones/unidad_medida/listar' => 'estaciones/unidad_medida#listar'
   post 'estaciones/unidad_medida/guardar' => 'estaciones/unidad_medida#guardar'
   get 'estaciones/tipo_estacion/listar' => 'estaciones/tipo_estacion#listar'
   post 'estaciones/tipo_estacion/guardar' => 'estaciones/tipo_estacion#guardar'
+  post 'estaciones/estacion/guardar' => 'estaciones/estacion#guardar'
 
   get '*unmatched_route' => 'application#not_found'
 end

@@ -40,4 +40,8 @@ class Agricultores::CampoController < ApplicationController
 	def obtener_ruta_foto
 		render :plain => get(CONSTANTS[:servicios][:archivos] + 'imagen/obtener_ruta_archivo/' + params[:imagen_id].to_s)
 	end
+
+	def estacion
+		render :plain => get(CONSTANTS[:servicios][:estaciones] + 'estacion/campo/' + params[:campo_id].to_s)
+	end
 end

@@ -1,8 +1,13 @@
+var tablaEstacionesCampo = new Grid();
+
 var EstacionView = Backbone.View.extend({
 	el: '#modal-container',
 	initialize: function(){
 		//this.render();
 		//console.log("initialize");
+	},
+	events: {
+	    "change #cbmCampos": "cargarEstaciones", 
 	},
 	render: function(asociacion_id) {
 		$("#btnModal").click(); 
@@ -55,4 +60,33 @@ var EstacionView = Backbone.View.extend({
 		}
 		return {campos:rpta};
 	},
+	cargarEstaciones: function(event) {
+		var campo_id = $(event.currentTarget).val();
+		$('#txtIdeCampo').html(campo_id);
+
+		if(campo_id == 'E'){
+			$("#txtMensajeRptaModal").addClass("color-rojo");
+			$("#txtMensajeRptaModal").removeClass("oculto");
+     	$("#txtMensajeRptaModal").html("Debe seleccionar un campo para poder continuar");
+		}else{
+			$("#txtMensajeRptaModal").removeClass("color-rojo");
+			$("#txtMensajeRptaModal").addClass("oculto");
+     	$("#txtMensajeRptaModal").html("");
+
+			tablaEstacionesCampo.BorrarTable();
+			var ajax_dao_campo_estacion = new AjaxPython(); 
+			ajax_dao_campo_estacion.Constructor("GET", BASE_URL + "agricultores/campo/estacion/" + campo_id , "", false);
+
+			tablaEstacionesCampo.SetTableId("tablaEstacionesCampo");
+			tablaEstacionesCampo.SetTableObj("tablaEstacionesCampo");
+			tablaEstacionesCampo.SetTableHeader(campo_estacion_array_json_th);
+			tablaEstacionesCampo.SetTableBody(campo_estacion_array_json_td, campo_estacion_array_json_btn_td, ajax_dao_campo_estacion);
+			tablaEstacionesCampo.SetTableFooter(campo_estacion_array_json_btn, false);
+			tablaEstacionesCampo.SetURLGuardar(BASE_URL + "estaciones/estacion/guardar");
+			tablaEstacionesCampo.SetExtraData(array_extra_data_tabla_estacion);
+			tablaEstacionesCampo.SetLabelMensaje("#txtMensajeRptaModal");
+           
+      tablaEstacionesCampo.MostrarTable();
+		}
+	}, 
 });
