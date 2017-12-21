@@ -59,11 +59,14 @@ Rails.application.routes.draw do
 
   get 'estaciones' => 'estaciones/view#index'
   get 'estaciones/estacion/listar' => 'estaciones/estacion#listar'
+  get 'estaciones/estacion/sensor/:estacion_id' => 'estaciones/estacion#sensor'
+  get 'estaciones/unidad_medida/listar_select' => 'estaciones/unidad_medida#listar_select'
   get 'estaciones/unidad_medida/listar' => 'estaciones/unidad_medida#listar'
   post 'estaciones/unidad_medida/guardar' => 'estaciones/unidad_medida#guardar'
   get 'estaciones/tipo_estacion/listar' => 'estaciones/tipo_estacion#listar'
   post 'estaciones/tipo_estacion/guardar' => 'estaciones/tipo_estacion#guardar'
   post 'estaciones/estacion/guardar' => 'estaciones/estacion#guardar'
+  post 'estaciones/sensor/guardar' => 'estaciones/sensor#guardar'
 
   get '*unmatched_route' => 'application#not_found'
 end

@@ -7,4 +7,8 @@ class Estaciones::UnidadMedidaController < ApplicationController
 	def guardar
 		render :plain => post(CONSTANTS[:servicios][:estaciones] + 'unidad_medida/guardar?data=' + params[:data])
 	end
+
+	def listar_select
+		render :plain => get(CONSTANTS[:servicios][:estaciones] + 'unidad_medida/listar_select')
+	end
 end

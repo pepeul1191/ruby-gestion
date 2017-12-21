@@ -30,7 +30,21 @@ var EstacionSensorView = Backbone.View.extend({
 	},
 	mostrarTabla: function(estacion_id){
 		var array_extra_data_campo = [
-			{tipo: "label", llave: "estacion_id", id : "txtIdeAsociacion"}
-		];	
-	},
+			{tipo: "label", llave: "estacion_id", id : "idEstacion"}
+		];
+
+		tablaEstacionSensor.BorrarTable();
+   	var ajax_dao_asociacion = new AjaxPython(); 
+   	ajax_dao_asociacion.Constructor("GET", BASE_URL + "estaciones/estacion/sensor/" + estacion_id, "", false);
+   	tablaEstacionSensor.SetTableId("tablaEstacionSensor");
+   	tablaEstacionSensor.SetTableObj("tablaEstacionSensor");
+   	tablaEstacionSensor.SetTableHeader(estacion_sesnor_array_json_th);
+   	tablaEstacionSensor.SetTableBody(estacion_sesnor_array_json_td, estacion_sesnor_array_json_btn_td, ajax_dao_asociacion);
+   	tablaEstacionSensor.SetTableFooter(estacion_sesnor_array_json_btn, false);
+   	tablaEstacionSensor.SetLabelMensaje("#txtMensajeRptaModal");
+   	tablaEstacionSensor.SetExtraData(array_extra_data_campo);
+   	tablaEstacionSensor.SetURLGuardar(BASE_URL + "estaciones/sensor/guardar");
+
+   	tablaEstacionSensor.MostrarTable();
+	}
 });

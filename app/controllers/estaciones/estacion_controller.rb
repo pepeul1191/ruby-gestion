@@ -7,4 +7,8 @@ class Estaciones::EstacionController < ApplicationController
 	def listar
 		render :plain => get(CONSTANTS[:servicios][:estaciones] + 'estacion/listar')
 	end
+
+	def sensor
+		render :plain => get(CONSTANTS[:servicios][:estaciones] + 'sensor/listar/' + params[:estacion_id])
+	end
 end

@@ -253,6 +253,7 @@ gulp.task('estaciones', function(){
         DESTINO + 'swp.js',
         MEDIA + 'layouts/app.js',
         MEDIA + 'views/estaciones/_table_estaciones.js', 
+        MEDIA + 'views/estaciones/_table_estacion_sensor.js', 
         MEDIA + 'views/estaciones/sensores.js', 
         MEDIA + 'views/estaciones/datos.js', 
         MEDIA + 'views/estaciones/estacion_sensor.js', 
