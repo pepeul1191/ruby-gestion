@@ -246,6 +246,33 @@ gulp.task('agricultores', function(){
     .pipe(gulp.dest(DESTINO));
 });
 
+gulp.task('estaciones', function(){
+    gulp.start('fonts', 'layout-css', 'layout-js', 'swp-plugins');
+    gulp.src([
+        DESTINO + 'libs.min.js',  
+        DESTINO + 'swp.js',
+        MEDIA + 'layouts/app.js',
+        MEDIA + 'views/estaciones/_table_estaciones.js', 
+        MEDIA + 'views/estaciones/sensores.js', 
+        MEDIA + 'views/estaciones/datos.js', 
+        MEDIA + 'views/estaciones/estacion_sensor.js', 
+        MEDIA + 'routes/estaciones.js'
+    ])
+    //.pipe(uglify())
+    .pipe(plumber())
+    .pipe(concatJs('estaciones.min.js'))
+    .pipe(gulp.dest(DESTINO))//.pipe(gulp.dest(DESTINO + 'home'))
+    .pipe(livereload());
+
+    gulp.src([
+        DESTINO + 'styles.min.css', 
+        DESTINO + 'swp.css'
+    ])
+    .pipe(plumber())
+    .pipe(concatCss('agricultores.min.css'))
+    .pipe(gulp.dest(DESTINO));
+});
+
 gulp.task('maestros', function(){
     gulp.start('fonts', 'layout-css', 'layout-js', 'swp-plugins');
     gulp.src([

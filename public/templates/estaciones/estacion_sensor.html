@@ -1,0 +1,22 @@
+<script id="sensor-template" type="text/x-handlebars-template">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Gestione los Sensores de la Estación Seleccionada</h4>
+      </div>
+      <div class="modal-body">
+        <label class="texto-der oculto" id="txtMensajeRptaModal"></label>
+        <div class="row">
+          <div class="col-md-12">
+              <label class="texto-der oculto" id="idEstacion">{{estacion_id}}</label>
+          </div>
+          <div class="col-md-12 workspace">
+            <h5 class="subtitulo" style="margin-bottom:15px">Sensores</h5>
+       			<table class="list issues" style="" id="tablaSensores"></table>
+          </div>
+      	</div>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</script>
