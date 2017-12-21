@@ -32,8 +32,8 @@ gulp.task('layout-css', function() {
     gulp.src([
         MEDIA + 'bower_components/bootstrap/dist/css/bootstrap.min.css', 
         MEDIA + 'bower_components/font-awesome/css/font-awesome.min.css', 
-        MEDIA + 'assets/fontastic/styles.css', 
-        MEDIA + 'assets/site/styles.css'
+        //MEDIA + 'assets/fontastic/styles.css', 
+        MEDIA + 'assets/site/basic-bootstrap.css'
     ])
     .pipe(plumber())
     .pipe(concatCss('styles.min.css'))

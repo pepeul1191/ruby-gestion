@@ -27,7 +27,7 @@ var Router = Marionette.AppRouter.extend({
         var estacionView = new EstacionView({});
         estacionView.render(asociacion_id);
         $("#txtIdeAsociacion").html(asociacion_id);
-        campoView.mostrarTabla(asociacion_id);
+        estacionView.mostrarTabla(asociacion_id);
     },
 });
     

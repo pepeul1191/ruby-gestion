@@ -44,12 +44,10 @@ Handlebars.registerHelper( "menuModulos", function (){
 Handlebars.registerHelper( "menuSubModulos", function (){
 	var rpta = '';
 	ITEMS_JSON.forEach(function(submodulo) {
-	    rpta = rpta + "<li class='list-group-item list-toggle'><span>" + submodulo['subtitulo'] + "</span>";
-		rpta = rpta + "<ul id='collapse-forms' class='collapse in' aria-expanded='true'>";
-	    submodulo['items'].forEach(function(item){
-			rpta = rpta + "<li class='list-group-item list-group-elemento'><a href='"+ BASE_URL + item['url']  + "'>" + item['item'] + "</a></li>";
+	  rpta = rpta + '<li class="list-group-item list-group-item-subtitulo">' + submodulo['subtitulo'] + "</li>";
+		submodulo['items'].forEach(function(item){
+			rpta = rpta + '<li class="list-group-item list-group-item-item"><a href="'+ BASE_URL + item['url']  + '"><i class="fa fa-chevron-right" aria-hidden="true"></i>' + item['item'] + '</a></li>';
 		});
-		rpta = rpta + "</ul></li>";
 	});
 
 	return rpta;    
