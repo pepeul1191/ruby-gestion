@@ -251,6 +251,8 @@ gulp.task('estaciones', function(){
     gulp.src([
         DESTINO + 'libs.min.js',  
         DESTINO + 'swp.js',
+        MEDIA + 'bower_components/jquery-ui/ui/widgets/datepicker.js',
+        MEDIA + 'bower_components/chart.js/dist/Chart.min.js',
         MEDIA + 'layouts/app.js',
         MEDIA + 'views/estaciones/_table_estaciones.js', 
         MEDIA + 'views/estaciones/_table_estacion_sensor.js', 
@@ -267,10 +269,12 @@ gulp.task('estaciones', function(){
 
     gulp.src([
         DESTINO + 'styles.min.css', 
-        DESTINO + 'swp.css'
+        DESTINO + 'swp.css',
+        MEDIA + 'bower_components/jquery-ui/themes/base/datepicker.css',
+        MEDIA + 'assets/datos/index.css', 
     ])
     .pipe(plumber())
-    .pipe(concatCss('agricultores.min.css'))
+    .pipe(concatCss('estaciones.min.css'))
     .pipe(gulp.dest(DESTINO));
 });
 
@@ -301,7 +305,7 @@ gulp.task('maestros', function(){
 
     gulp.src([
         DESTINO + 'styles.min.css', 
-        DESTINO + 'swp.css'
+        DESTINO + 'swp.css',
     ])
     .pipe(plumber())
     .pipe(concatCss('maestros.min.css'))

@@ -34,4 +34,4 @@ footer.nb-footer .copyright p { margin: 0; padding: 0; padding-left: 10px;}
 .boton-tabla, .btn-default{color: #343434 !important;background-color: #f8f8f8 !important;border-color: #ccc !important; border-radius: 0px; padding:5px; font-size: 11px;
     border-radius: 0px;}
 .boton-tabla:hover, .btn-default:hover{color: #343434 !important; background-color: #e7e7e7!important;border-color: #ccc !important; font-size: 11px; border-radius: 0px; padding:5px;}
-.form-control { font-size: 11px;}
+.form-control { font-size: 11px; border-radius: 0px; height: 27px;}

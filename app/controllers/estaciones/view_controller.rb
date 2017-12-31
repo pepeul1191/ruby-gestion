@@ -3,7 +3,7 @@ class Estaciones::ViewController < ApplicationController
 		@titulo_pagina = 'Gestión de Estaciones'
 		@modulo = 'Estaciones'
 		@title = 'Estaciones'
-		@css = 'dist/accesos.min.css'
+		@css = 'dist/estaciones.min.css'
 		@js_top = 'http://localhost:3000/'
 		@menu = '[{"url" : "accesos/", "nombre" : "Accesos"},{"url" : "maestros/", "nombre" : "Maestros"},{"url" : "agricultores/", "nombre" : "Agricultores"},{"url" : "estaciones/", "nombre" : "Estaciones"}]'
 		@items = '[{"subtitulo":"Opciones","items":[{"item":"Gestión de Sensores","url":"estaciones/#/sensores"},{"item":"Datos de Sensores","url":"estaciones/#/datos"}]}]' 

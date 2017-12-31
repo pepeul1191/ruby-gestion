@@ -19,7 +19,7 @@ var Router = Marionette.AppRouter.extend({
     datosIndex: function(){
         var datosIndex = new DatosView({});
         datosIndex.render();
-        datosIndex.mostrarTabla();
+        datosIndex.formReportes();
     },
     estacionSensor: function(estacion_id){
         var estacionSensorView = new EstacionSensorView({});
