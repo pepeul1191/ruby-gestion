@@ -148,6 +148,7 @@ var DatosView = Backbone.View.extend({
 				type: "GET", 
 				async: false, 
 				success: function(data) {
+					data = JSON.parse(data);
 					var data_chart = [];
 					var axis_x = [];
 					var data_max = [];
