@@ -68,5 +68,8 @@ Rails.application.routes.draw do
   post 'estaciones/estacion/guardar' => 'estaciones/estacion#guardar'
   post 'estaciones/sensor/guardar' => 'estaciones/sensor#guardar'
 
+  get 'reporte/max_min_avg_dias' => 'reporte/max_min_avg_dias'
+  get 'reporte/datos_dia' => 'reporte/datos_dia'
+
   get '*unmatched_route' => 'application#not_found'
 end

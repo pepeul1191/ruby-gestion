@@ -1,5 +1,3 @@
-const REPORTES = 'http://localhost:3035/';
-
 var DatosView = Backbone.View.extend({
 	el: '#workspace',
 	initialize: function(){
@@ -70,7 +68,7 @@ var DatosView = Backbone.View.extend({
 			//http://localhost:3035/reporte/datos_dia?sensor_id=7&dia=2017.12.26
 			$.ajax({
 				//url: REPORTES + 'reporte/datos_dia', 
-				url: REPORTES + 'reporte/datos_dia?sensor_id=' + sensor_id + '&dia=' + dia, 
+				url: BASE_URL + 'reporte/datos_dia?sensor_id=' + sensor_id + '&dia=' + dia, 
 				type: "GET", 
 				async: false, 
 				success: function(data) {
@@ -85,10 +83,11 @@ var DatosView = Backbone.View.extend({
 			var dia = dia_array[2] + '.' + dia_array[1] + '.' + dia_array[0];
 			//http://localhost:3035/reporte/datos_dia?sensor_id=7&dia=2017.12.26
 			$.ajax({
-				url: REPORTES + 'reporte/datos_dia?sensor_id=' + sensor_id + '&dia=' + dia, 
+				url: BASE_URL + 'reporte/datos_dia?sensor_id=' + sensor_id + '&dia=' + dia, 
 				type: "GET", 
 				async: false, 
 				success: function(data) {
+					data = JSON.parse(data);
 					var data_chart = [];
 					var axis_x = [];
 					//console.log(data);
@@ -145,7 +144,7 @@ var DatosView = Backbone.View.extend({
 			var fin = fin_array[2] + '.' + fin_array[1] + '.' + fin_array[0];
 			//http://localhost:3035/reporte/max_min_avg_dias?sensor_id=7&inicio=2017.12.26&fin=2017.12.28
 			$.ajax({
-				url: REPORTES + 'reporte/max_min_avg_dias?sensor_id=' + sensor_id + '&inicio=' + inicio + '&fin=' + fin, 
+				url: BASE_URL + 'reporte/max_min_avg_dias?sensor_id=' + sensor_id + '&inicio=' + inicio + '&fin=' + fin, 
 				type: "GET", 
 				async: false, 
 				success: function(data) {
